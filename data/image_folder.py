@@ -23,6 +23,8 @@ def is_image_file(filename):
 
 def make_dataset(dir):
     images = []
+    if not os.path.exists(dir):
+        os.mkdir(dir)
     assert os.path.isdir(dir), '%s is not a valid directory' % dir
 
     for root, _, fnames in sorted(os.walk(dir)):

@@ -100,3 +100,8 @@ year = {2018},
 The code is based on project [CycleGAN](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix). We sincerely thank for their great work.
 
 
+
+### Docker instructions
+
+Run `docker run $(docker -q build .)` to run the docker container that will train.
+
