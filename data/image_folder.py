@@ -21,10 +21,8 @@ def is_image_file(filename):
     return any(filename.endswith(extension) for extension in IMG_EXTENSIONS)
 
 
-def make_dataset(dir):
+def make_dataset(dir, opt):
     images = []
-    if not os.path.exists(dir):
-        os.mkdir(dir)
     assert os.path.isdir(dir), '%s is not a valid directory' % dir
 
     for root, _, fnames in sorted(os.walk(dir)):
@@ -33,6 +31,9 @@ def make_dataset(dir):
                 path = os.path.join(root, fname)
                 images.append(path)
 
+    print("selecting %d/%d images in '%s'" % (opt.ntest, len(images), dir))
+    if opt.ntest < len(images):
+        return images[:opt.ntest]
     return images
 
 
@@ -44,7 +45,7 @@ class ImageFolder(data.Dataset):
 
     def __init__(self, root, transform=None, return_paths=False,
                  loader=default_loader):
-        imgs = make_dataset(root)
+        imgs = make_dataset(root, opt)  # not implemented (doesn't seem to be used anyway)
         if len(imgs) == 0:
             raise(RuntimeError("Found 0 images in: " + root + "\n"
                                "Supported image extensions are: " +

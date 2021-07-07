@@ -14,8 +14,8 @@ class UnalignedDataset(BaseDataset):
         self.dir_A = os.path.join(opt.dataroot, opt.phase + 'A')
         self.dir_B = os.path.join(opt.dataroot, opt.phase + 'B')
 
-        self.A_paths = make_dataset(self.dir_A)
-        self.B_paths = make_dataset(self.dir_B)
+        self.A_paths = make_dataset(self.dir_A, self.opt)
+        self.B_paths = make_dataset(self.dir_B, self.opt)
 
         self.A_paths = sorted(self.A_paths)
         self.B_paths = sorted(self.B_paths)

@@ -13,7 +13,7 @@ class HalfDataset(BaseDataset):
         self.opt = opt
         self.root = opt.dataroot
         self.dir = os.path.join(opt.dataroot, opt.phase)
-        self.paths = make_dataset(self.dir)
+        self.paths = make_dataset(self.dir, self.opt)
         self.paths = sorted(self.paths)
         self.size = len(self.paths)
         self.fineSize = opt.fineSize
