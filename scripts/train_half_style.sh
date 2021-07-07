@@ -2,7 +2,7 @@
 source scripts/env.sh
 
 python train.py --dataroot ./datasets/$DATASET/$NUMBER \
-                --name "$NUMBER_$DATASET_style_14x14" \
+                --name "$NUMBER"_"$DATASET"_style_"$STYLE" \
                 --use_style \
                 --no_flip \
                 --no_lsgan \
@@ -20,5 +20,6 @@ python train.py --dataroot ./datasets/$DATASET/$NUMBER \
                 --niter_decay 50000 \
                 --niter 50000 \
                 --save_epoch_freq 2000 \
+                --no-print-network \
                 --gpu_ids "$GPU_IDS" \
-                "$@"
+                --display_id "$DISPLAY_ID"
