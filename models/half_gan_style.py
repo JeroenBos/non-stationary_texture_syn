@@ -161,10 +161,10 @@ class HalfGanStyleModel(BaseModel):
     def get_current_errors(self):
         # print(self.pred_real)
         # print(self.pred_fake)
-        return OrderedDict([('G_GAN', self.loss_G_GAN.data[0]),
-                            ('G_L1', self.loss_G_L1.data[0]),
-                            ('D_real', self.loss_D_real.data[0]),
-                            ('D_fake', self.loss_D_fake.data[0]),
+        return OrderedDict([('G_GAN', self.loss_G_GAN.data.item()),
+                            ('G_L1', self.loss_G_L1.data.item()),
+                            ('D_real', self.loss_D_real.data.item()),
+                            ('D_fake', self.loss_D_fake.data.item()),
                             ('Style', self.style_loss_value)
                             ])
 
