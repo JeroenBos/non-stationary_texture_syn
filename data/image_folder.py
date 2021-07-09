@@ -30,10 +30,10 @@ def make_dataset(dir, opt):
             if is_image_file(fname):
                 path = os.path.join(root, fname)
                 images.append(path)
-
-    print("selecting %d/%d images in '%s'" % (opt.ntest, len(images), dir))
-    if opt.ntest < len(images):
-        return images[:opt.ntest]
+    if hasattr(opt, "ntest"):
+        print("selecting %d/%d images in '%s'" % (opt.ntest, len(images), dir))
+        if opt.ntest < len(images):
+            return images[:opt.ntest]
     return images
 
 
