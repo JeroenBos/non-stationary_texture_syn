@@ -29,7 +29,7 @@ docs/src/**/*
 test/data/legacy_modules.t7
 test/data/gpu_tensors.pt
 test/htmlcov
-test/.coverage
+test/.coveragv
 */*.pyc
 */**/*.pyc
 */**/**/*.pyc
@@ -40,3 +40,4 @@ test/.coverage
 */**/*.dylib*
 test/data/legacy_serialized.pt
 *~
+Models/vgg_conc.pth
