@@ -130,7 +130,7 @@ class HalfGanStyleModel(BaseModel):
             loss = sum(layer_losses)
             self.style_loss = loss
             loss.backward(retain_graph=True)
-            self.style_loss_value = self.style_loss.data[0]
+            self.style_loss_value = self.style_loss.data.item()
         else:
             self.style_loss_value = 0
 
