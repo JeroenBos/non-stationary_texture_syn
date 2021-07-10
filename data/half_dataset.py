@@ -22,11 +22,12 @@ class HalfDataset(BaseDataset):
     def __getitem__(self, index):
         path = self.paths[index % self.size]
         B_img = Image.open(path).convert('RGB')
-        if self.opt.isTrain and not self.opt.no_flip:
-            if random.random() > 0.5:
-                B_img = B_img.transpose(Image.FLIP_LEFT_RIGHT)
-            else:
-                B_img = B_img
+        if self.opt.isTrain:
+            if not self.opt.no_flip:
+                if random.random() > 0.5:
+                    B_img = B_img.transpose(Image.FLIP_LEFT_RIGHT)
+                else:
+                    B_img = B_img
                 
         w, h = B_img.size
         rw = random.randint(0, w - self.fineSize)
