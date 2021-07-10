@@ -1,8 +1,8 @@
 source scripts/env.sh
 
 python cnn-vis.py \
-              --dataroot ./datasets/$DATASET/$NUMBER/test \
-              --name "$NUMBER"_"$DATASET"_style_"$STYLE" \
+              --dataroot ./datasets/$DATASET/test \
+              --name "$DATASET"_style_"$STYLE" \
               --which_epoch "$EPOCH" \
               --model test \
               --which_model_netG resnet_2x_6blocks \

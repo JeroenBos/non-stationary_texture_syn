@@ -1,6 +1,6 @@
 debug*
-checkpoints/
-results/
+datasets/*/checkpoints/
+datasets/*/results/
 build/
 dist/
 *.json

@@ -103,6 +103,12 @@ The code is based on project [CycleGAN](https://github.com/junyanz/pytorch-Cycle
 
 ### Docker instructions
 
+Train a GAN for a set of images, all in one go:
+```bash
+docker-compose -f docker-compose.train.yml up
+```
+
+
 Start visualization tool:
 ```bash
 docker-compose -f docker-compose.train.yml up -d visdom

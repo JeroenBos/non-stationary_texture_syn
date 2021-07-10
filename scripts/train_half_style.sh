@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 source scripts/env.sh
 
-python train.py --dataroot ./datasets/$DATASET/$NUMBER \
-                --name "$NUMBER"_"$DATASET"_style_"$STYLE" \
+python train.py --dataroot ./datasets/$DATASET \
+                --name "$DATASET"_"$STYLE" \
                 --use_style \
                 --no_flip \
                 --no_lsgan \

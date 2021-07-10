@@ -2,8 +2,9 @@
 source ./scripts/env.sh
 
 python test.py \
-              --dataroot ./datasets/$DATASET \
-              --name "$NUMBER"_"$DATASET"_style_"$STYLE" \
+              --dataroot ./datasets/"$DATASET" \
+              --results_dir ./datasets/"$DATASET"/results \
+              --name "$DATASET"_"$STYLE" \
               --model test \
               --which_epoch "$EPOCH" \
               --which_model_netG resnet_2x_6blocks \
