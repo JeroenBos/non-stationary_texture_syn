@@ -22,5 +22,6 @@ python train.py --dataroot ./datasets/$DATASET/$NUMBER \
                 --save_epoch_freq 2000 \
                 --no-print-network \
                 --gpu_ids "$GPU_IDS" \
+                --display_freq 2 \
                 --display_host "$DISPLAY_HOST" \
                 --display_id "$DISPLAY_ID"

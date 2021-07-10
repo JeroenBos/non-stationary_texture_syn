@@ -22,7 +22,7 @@ opt.results_dir = os.path.join(os.path.dirname(opt.checkpoints_dir), 'results')
 web_dir = os.path.join(opt.results_dir, opt.name)
 webpage = html.HTML(web_dir, 'Experiment = %s' % (opt.name))
 
-
+print "Starting experiment",
 for epoch in range(opt.epoch_count, opt.niter + opt.niter_decay + 1):
     epoch_start_time = time.time()
     epoch_iter = 0
