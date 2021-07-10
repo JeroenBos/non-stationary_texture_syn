@@ -103,5 +103,19 @@ The code is based on project [CycleGAN](https://github.com/junyanz/pytorch-Cycle
 
 ### Docker instructions
 
-Run `docker run $(docker -q build .)` to run the docker container that will train.
+Start visualization tool:
+```bash
+docker-compose -f docker-compose.train.yml up -d visdom
+
+# docker network create texsyn
+# docker run --rm --net texsyn -it -p 8097:8097 --name visdom hypnosapos/visdom:e0a912d
+```
+
+
+Navigate in a browser to http://localhost:8097
+
+```
+docker-compose -f docker-compose.train.yml up --build texsyn
+```
+
 

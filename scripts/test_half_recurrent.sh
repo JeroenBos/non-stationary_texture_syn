@@ -14,4 +14,5 @@ python test_recurrent.py \
            --no-print-network \
            --gpu_ids "$GPU_IDS" \
            --display_id "$DISPLAY_ID" \
+           --display_host "$DISPLAY_HOST" \
            "$@"

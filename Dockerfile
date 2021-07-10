@@ -27,6 +27,11 @@ RUN pip install visdom==0.1.8.5
 # curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | tee /etc/apt/sources.list.d/nvidia-docker.list
 # apt-get update
 
+RUN apt install -y netcat  # debug only
+RUN apt install -y iproute2
 COPY . .
 
-CMD [ "bash", "-i", "scripts/train_half_style.sh", "--gpu_ids", "-1" ]
+EXPOSE 8097
+
+# CMD [ "bash", "-i", "scripts/train_half_style.sh", "--gpu_ids", "-1" ]
+CMD [ "bash", "-c", "sleep 2; nc -v visdom 8097" ]

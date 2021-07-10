@@ -12,4 +12,5 @@ python cnn-vis.py \
               --resize_or_crop none \
               --no-print-network \
               --gpu_ids "$GPU_IDS" \
+              --display_host "$DISPLAY_HOST" \
               --display_id "$DISPLAY_ID"

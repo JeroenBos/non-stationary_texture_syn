@@ -16,7 +16,7 @@ class Visualizer():
         self.fineSize = opt.fineSize
         if self.display_id > 0:
             import visdom
-            self.vis = visdom.Visdom(port = opt.display_port)
+            self.vis = visdom.Visdom(server = opt.display_host, port = opt.display_port)
             self.display_single_pane_ncols = opt.display_single_pane_ncols
 
         if self.use_html:

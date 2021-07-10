@@ -1,0 +1,9 @@
+version: "3.8"
+services:
+  visdom:
+    image: "hypnosapos/visdom:e0a912d"
+    ports:
+        - "8097:8097"
+  texsyn:
+    build: .
+    depends_on: [ visdom ]
