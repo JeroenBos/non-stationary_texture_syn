@@ -27,7 +27,7 @@ class BaseOptions():
                                  help='chooses which model to use. cycle_gan, pix2pix, test, etc')
         self.parser.add_argument('--which_direction', type=str, default='AtoB', help='AtoB or BtoA')
         self.parser.add_argument('--nThreads', default=2, type=int, help='# threads for loading data')
-        self.parser.add_argument('--checkpoints_dir', type=str, default='./checkpoints', help='models are saved here')
+        self.parser.add_argument('--checkpoints_dir', type=str, default='--dataroot/checkpoints', help='models are saved here. Defaults to `./checkpoints` in the dataroot dir. ')
         self.parser.add_argument('--norm', type=str, default='instance', help='instance normalization or batch normalization')
         self.parser.add_argument('--serial_batches', action='store_true', help='if true, takes images in order to make batches, otherwise takes them randomly')
         self.parser.add_argument('--display_winsize', type=int, default=256,  help='display window size')
@@ -47,6 +47,10 @@ class BaseOptions():
             self.initialize()
         self.opt = self.parser.parse_args()
         self.opt.isTrain = self.isTrain   # train or test
+
+        if self.opt.checkpoints_dir.startswith("--dataroot/"):
+            subdir = self.opt.checkpoints_dir[len("--dataroot/"):]
+            self.opt.checkpoints_dir = os.path.join(self.opt.dataroot, subdir)
 
         str_ids = self.opt.gpu_ids.split(',')
         self.opt.gpu_ids = []
