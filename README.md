@@ -112,23 +112,16 @@ The code is based on project [CycleGAN](https://github.com/junyanz/pytorch-Cycle
 
 Train a GAN for a set of images, all in one go:
 ```bash
-docker-compose -f docker-compose.train.yml up --build 
+docker-compose -f docker-compose.train.yml up --build
 ```
 
-
-Start visualization tool:
+Or in two steps:
+1. Start visualization tool:
 ```bash
 docker-compose -f docker-compose.train.yml up -d visdom
 ```
-
-
-Navigate in a browser to http://localhost:8097
-
-
-
----------------
-
-To train:
+- Navigate in a browser to http://localhost:8097
+2. To train:
 
 ```
 docker-compose -f docker-compose.train.yml up --build texsyn
