@@ -33,4 +33,4 @@ COPY . .
 
 EXPOSE 8097
 
-CMD [ "bash", "-i", "sleep 2; nc -v visdom 8097; scripts/train_half_style.sh", "--gpu_ids", "-1" ]
+CMD [ "bash", "scripts/docker_entry.sh" ]
