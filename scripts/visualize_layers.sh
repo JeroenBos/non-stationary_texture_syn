@@ -13,4 +13,5 @@ python cnn-vis.py \
               --no-print-network \
               --gpu_ids "$GPU_IDS" \
               --display_host "$DISPLAY_HOST" \
-              --display_id "$DISPLAY_ID"
+              --display_id "$DISPLAY_ID" \
+              "$@"

@@ -24,4 +24,5 @@ python train.py --dataroot ./datasets/$DATASET \
                 --gpu_ids "$GPU_IDS" \
                 --display_freq 2 \
                 --display_host "$DISPLAY_HOST" \
-                --display_id "$DISPLAY_ID"
+                --display_id "$DISPLAY_ID" \
+                "$@"

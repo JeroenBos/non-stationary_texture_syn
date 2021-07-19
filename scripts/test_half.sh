@@ -17,4 +17,5 @@ python test.py \
               --gpu_ids "$GPU_IDS" \
               --display_id "$DISPLAY_ID" \
               --display_host "$DISPLAY_HOST" \
-              --ntest 1
+              --ntest 1  \
+              "$@"
