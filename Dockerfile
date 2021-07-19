@@ -21,12 +21,6 @@ RUN pip install matplotlib==2.2.5
 RUN pip install dominate==2.6.0
 RUN pip install visdom==0.1.8.5
 
-# Didn't install this inside the docker container:
-# curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | apt-key add -
-# distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
-# curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | tee /etc/apt/sources.list.d/nvidia-docker.list
-# apt-get update
-
 RUN apt install -y netcat  # debug only
 RUN apt install -y iproute2
 COPY . .

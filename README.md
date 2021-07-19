@@ -134,8 +134,3 @@ To train:
 docker-compose -f docker-compose.train.yml up --build texsyn
 ```
 
-
-
-------------
-TODO: 
-Use docker volumes such that you can easily select different images to train on, and to store checkpoints and intermediate results outside of the docker container
