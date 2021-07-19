@@ -1,4 +1,4 @@
-FROM nvidia/cuda:10.2-devel-ubuntu18.04
+FROM nvidia/cuda:11.4.0-devel-ubuntu18.04
 WORKDIR /app
 
 RUN apt-get update
