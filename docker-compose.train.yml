@@ -6,4 +6,6 @@ services:
         - "8097:8097"
   texsyn:
     build: .
+    volumes:
+      - ./datasets:/app/datasets
     depends_on: [ visdom ]

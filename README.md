@@ -30,35 +30,42 @@ Please run `download_pretrained_models.sh` first to make a new folder `Models` a
 
 ### Data
 
-There is no restriction for the format of the source texture images. The structure of the data folder is recommanded as the provided sub-folders inside `datasets` folder. To be more specific, `datasets/half` is what we use in paper production.
+There is no restriction for the format of the source texture images (but dwefault cropping applies). The structure of the data folder is recommended as the provided sub-folders inside `datasets` folder, e.g. demonstrated is `datasets/demo`.
 
 The dataset structure is recommended as:
 ```
-+--half
++--demo
+|   +--train
 |
-|   +--sunflower
+|       +--train_image1.jpg
 |
-|       +--train
+|       +--train_image2.jpg
 |
-|           +--sunflower.jpg
 |
-|       +--test
+|   +--test  # currently not supported yet
 |
-|           +--sunflower.jpg
+|       +--test_image1.jpg
 |
-|   +--brick
++--your_example
+|   +--train
 |
-|       +--train
+|       +--some_name1.jpg
 |
-|           +--brick.jpg
+|       +--some_name2.jpg
 |
-|       +--test
 |
-|           +--brick.jpg
+|   +--test  # currently not supported yet
 |
+|       +--some_name.jpg
+|
++--
 ...
 ```
 
+A GAN is trained per data set, that is, on all images in the directory `./train` of the data set. This should create a folder `./checkpoints` in the data set.
+When running a docker container, you should point the volume to one of those data set directories, which should have as minimum the `./train` directory. If it contains checkpoints, training will resume from those.
+
+The `./test` directory of a data set is meant to generate images using an already trained GAN, but this is not incorporated into docker yet.
 
 ### Architecture of the repository
 
@@ -76,7 +83,7 @@ Folder `util` contains some scripts to generate perlin noise (perlin2d.py), gene
 
 ### Train, test and visualize
 
-Folder `scripts` contain scripts used for training and testing. To train or test a model, use commands like `sh scripts/train_half_style.sh`. Go into these files to see how to specify some hyper parameters. To visualize the internal layers inside network, especially the residual blocks, you can use script `visualize_layers.sh`, as shown in our paper.
+The folder `scripts` contain scripts used for training and testing. To train or test a model, use commands like `sh scripts/train_half_style.sh`. Go into these files to see how to specify some hyper parameters. To visualize the internal layers inside network, especially the residual blocks, you can use script `visualize_layers.sh`, as shown in our paper.
 
 
 ### Cite
@@ -105,7 +112,7 @@ The code is based on project [CycleGAN](https://github.com/junyanz/pytorch-Cycle
 
 Train a GAN for a set of images, all in one go:
 ```bash
-docker-compose -f docker-compose.train.yml up
+docker-compose -f docker-compose.train.yml up --build 
 ```
 
 
