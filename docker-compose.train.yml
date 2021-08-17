@@ -9,3 +9,5 @@ services:
     volumes:
       - ./datasets:/app/datasets
     depends_on: [ visdom ]
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
